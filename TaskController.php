@@ -202,12 +202,7 @@ class TaskController extends Controller
         return redirect("/tasks")->with("message",__('en.CREATE_MSG'));
     }
     
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  Spottless\CheckSheet\Request\CheckSheetRequest  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function assignTaskList()
     {
        $employees =  Employee::where(["company_id"=>Auth::user()->company_id,"status"=>"Active"])->orderBy("name","asc")->paginate($this->perpage);
